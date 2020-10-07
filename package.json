@@ -1,0 +1,23 @@
+{
+  "name": "electron-scheduler",
+  "version": "1.0.0",
+  "description": "This is an appointment scheduler/tracker made with electron",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KantKontrol/Electron-Scheduler.git"
+  },
+  "author": "KantKontrol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KantKontrol/Electron-Scheduler/issues"
+  },
+  "homepage": "https://github.com/KantKontrol/Electron-Scheduler#readme",
+  "dependencies": {
+    "electron": "^10.1.3"
+  }
+}
