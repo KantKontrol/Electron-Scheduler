@@ -9,6 +9,8 @@ const SCREEN_HEIGHT = 1024;
  
 function createWindow() {
     mainWindow = new BrowserWindow({
+        minWidth: 800,
+        minHeight: 600,
         width: SCREEN_WIDTH,
         height: SCREEN_HEIGHT,
         show: false
@@ -22,4 +24,5 @@ function createWindow() {
         mainWindow = null;
     });
 }
+
 app.on('ready', createWindow);
