@@ -2,7 +2,7 @@
   "name": "electron-scheduler",
   "version": "0.1.0",
   "private": true,
-  "ebuild": "npm run build && node_modules/.bin/build",
+  "main": "./electron/main.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -17,10 +17,12 @@
     "wait-on": "^5.2.0"
   },
   "scripts": {
+    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "ebuild": "npm run build && node_modules/.bin/build"
   },
   "eslintConfig": {
     "extends": "react-app"
