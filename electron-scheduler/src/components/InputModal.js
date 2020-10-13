@@ -15,12 +15,13 @@ export default function InputModal(props){
         childName: "",
         hour: 0,
         minute: 0,
-        ampm: "AM",
-        setName: function({name, value}){
-           setAData({ ...aData, [name]: value });
-        }
+        ampm: "AM"
     });
 
+    const setName = (e) => {
+        let {name, value} = e.target;
+        setAData({ ...aData, [name]: value });
+    }
 
     console.log(aData);
 
@@ -42,7 +43,7 @@ export default function InputModal(props){
                     aria-describedby="basic-addon1"
                     name="parentName"
                     value={aData.parentName}
-                    onChange={e => aData.setName(e.target)}
+                    onChange={setName}
                     />
                 </InputGroup>
                 <InputGroup className="mb-3">
@@ -52,7 +53,7 @@ export default function InputModal(props){
                     aria-describedby="basic-addon1"
                     name="childName"
                     value={aData.childName}
-                    onChange={e => aData.setName(e.target)}
+                    onChange={setName}
                     />
                 </InputGroup>
                 <div className="mx-auto">
