@@ -3,7 +3,15 @@ import Modal from "react-bootstrap/Modal";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
+import DP from "./DP";
 
+
+const hours = [ 1,2,3,4,5,6,7,8,9,10,11,12 ];
+const minutes = [];
+
+for(let i=1;i <= 60;i++){
+    minutes.push(i);
+}
 
 export default function InputModal(props){
 
@@ -25,12 +33,8 @@ export default function InputModal(props){
 
     console.log(aData);
 
-    const hours = [ 1,2,3,4,5,6,7,8,9,10,11,12 ];
-    const minutes = [];
-
-    for(let i=1;i <= 60;i++){
-        minutes.push(i);
-    }
+    //add DATE, submit appointment, clear input state, display appointment, save appointment
+    //https://www.npmjs.com/package/react-bootstrap-date-picker
 
     return (
         <Modal show={showModal}>
@@ -56,6 +60,7 @@ export default function InputModal(props){
                     onChange={setName}
                     />
                 </InputGroup>
+                <DP />
                 <div className="mx-auto">
                     <Form.Group className="w-25 d-inline-block" controlId="exampleForm.ControlSelect2">
                         <Form.Label>Hour</Form.Label>
