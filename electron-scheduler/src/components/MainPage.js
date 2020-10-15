@@ -6,7 +6,7 @@ export default function MainPage(){
 
     const [pageState, setPageState] = useState({
         showModal: false,
-        appointments: [],
+        appointments: [{parentName: "Mark DeRissio", childName: "Nicholas DeRissio", date: "10/14/2020", hour: 1, minute: "00", ampm: "PM"}],
         setModal: function(value){
             setPageState({ ...pageState, showModal: value });
         },

@@ -8,13 +8,13 @@ export default function ALoader(props){
 
     return (
         <div className="row">
-        
-            {
-                appointments.length > 0 ? appointments.map(e => {
-                    return <ADisplay appointment={e} key={e.parentName}/>;
-                }) : <div></div> 
-            }
-        
+            <div className="col-12">
+                {
+                    appointments.length > 0 ? appointments.map(e => {
+                        return <ADisplay appointment={e} key={e.parentName}/>;
+                    }) : <div></div> 
+                }
+            </div>
         </div>
     );
 }

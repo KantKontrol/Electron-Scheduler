@@ -25,6 +25,37 @@
   margin: 0 auto;
 }
 
+.adisplay-main {
+  background-color: gray;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+}
+
+.adisplay {
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.adisplay-header {
+  font-size: 1.5rem;
+  
+}
+
+.adisplay-sub {
+  font-size: 1.2rem;
+ 
+}
+
+.adisplay-date{
+  font-size: 1.2rem;
+}
+.adisplay-time {
+  font-size: 1.2rem;
+}
 
 .App-link {
   color: #61dafb;
