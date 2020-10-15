@@ -9,7 +9,7 @@ import DP from "./DP";
 const hours = [ 1,2,3,4,5,6,7,8,9,10,11,12 ];
 const minutes = [];
 
-for(let i=1;i <= 60;i++){
+for(let i=0;i < 60;i++){
     minutes.push(i);
 }
 
@@ -21,10 +21,18 @@ export default function InputModal(props){
     const [aData, setAData] = useState({
         parentName: "",
         childName: "",
+        date: new Date(),
+        actualDate: "",
         hour: 0,
         minute: 0,
         ampm: "AM"
     });
+
+
+    const setDate = (jsDate, dateString) => {
+        let newDate = jsDate.toLocaleDateString("en-US");
+        setAData({ ...aData, date: dateString, actualDate: newDate });
+    }
 
     const setName = (e) => {
         let {name, value} = e.target;
@@ -60,7 +68,7 @@ export default function InputModal(props){
                     onChange={setName}
                     />
                 </InputGroup>
-                <DP />
+                <DP date={aData.date} setDate={setDate}/>
                 <div className="mx-auto">
                     <Form.Group className="w-25 d-inline-block" controlId="exampleForm.ControlSelect2">
                         <Form.Label>Hour</Form.Label>

@@ -6,38 +6,18 @@ import { DatePicker, DatePickerInput } from 'rc-datepicker';
 
 
 
+export default function DP(props){
 
-export default class DP extends React.Component{
-
-  constructor(){
-    super();
-    this.state = {
-      value: new Date().getUTCDate()
-    }
-  }
+  const { date, setDate } = props; 
 
 
-    onChange(jsDate, dateString){
-      console.log({jsDate, dateString});
-    }
-
-    componentDidUpdate(){
-
-    }
-
-
-    render(){
-      return (
-        <>
-        <DatePickerInput
-            onChange={this.onChange}
-            value={this.value}
-            className='my-custom-datepicker-component'
-        />
-
-        </>
-      );
-     }
+  return (
+    <DatePickerInput
+        onChange={setDate}
+        value={date}
+        className='my-custom-datepicker-component'
+    />
+  );
 }
  
  
