@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InputModal from "./InputModal";
-
+import ALoader from "./ALoader";
 
 export default function MainPage(){
 
@@ -19,6 +19,7 @@ export default function MainPage(){
             setPageState({ ...pageState, appointments: app, showModal: false }); //update state
         }
     });
+
     console.log(pageState.appointments)
    
     return (
@@ -33,6 +34,8 @@ export default function MainPage(){
                 <div className="row">
                     <button className="btn btn-primary d-block mx-auto mt-1" onClick={() => pageState.setModal(true)}>Create Appointment</button>
                 </div>
+
+                <ALoader appointments={pageState.appointments} />
             
             </div>
             <InputModal showModal={pageState.showModal} setModal={pageState.setModal} createAppointment={pageState.createAppointment}/>
