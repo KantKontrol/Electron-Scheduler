@@ -39,7 +39,7 @@ export default function InputModal(props){
         setAData({ ...aData, [name]: value });
     }
 
-    console.log(aData);
+    
 
     //add DATE, submit appointment, clear input state, display appointment, save appointment
     //https://www.npmjs.com/package/react-bootstrap-date-picker
@@ -101,7 +101,14 @@ export default function InputModal(props){
 
             </Modal.Body>
             <Modal.Footer>
-                <button className="btn btn-primary" onClick={() => createAppointment()}>Submit</button>
+                <button className="btn btn-primary" onClick={() => createAppointment({
+                    date: aData.actualDate,
+                    parentName: aData.parentName,
+                    childName: aData.childName,
+                    hour: aData.hour,
+                    minute: aData.minute,
+                    ampm: aData.ampm
+                })}>Submit</button>
                 <button className="btn btn-secondary" onClick={() => setModal(false)}>Close</button>
             </Modal.Footer>
         </Modal>
