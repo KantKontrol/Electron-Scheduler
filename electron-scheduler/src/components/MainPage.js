@@ -5,7 +5,7 @@ import InputModal from "./InputModal";
 export default function MainPage(){
 
     const [pageState, setPageState] = useState({
-        showModal: false,
+        showModal: React.createRef(),
         appointments: [],
         setModal: function(value){
             setPageState({ ...pageState, showModal: value });

@@ -9,15 +9,16 @@ import { DatePicker, DatePickerInput } from 'rc-datepicker';
 
 export default class DP extends React.Component{
 
-    getInitialState(){
-        var value = new Date().toISOString();
-        return {
-          value: value
-        }
+  constructor(){
+    super();
+    this.state = {
+      value: new Date().getUTCDate()
     }
+  }
+
 
     onChange(jsDate, dateString){
-
+      console.log({jsDate, dateString});
     }
 
     componentDidUpdate(){
