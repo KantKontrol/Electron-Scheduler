@@ -39,6 +39,18 @@ export default function InputModal(props){
         setAData({ ...aData, [name]: value });
     }
 
+    const resetForm = () => {//resets this form
+        setAData({
+            parentName: "",
+            childName: "",
+            date: new Date(),
+            actualDate: "",
+            hour: 0,
+            minute: 0,
+            ampm: "AM"
+        });
+    }
+
     
 
     //add DATE, submit appointment, clear input state, display appointment, save appointment
@@ -101,14 +113,14 @@ export default function InputModal(props){
 
             </Modal.Body>
             <Modal.Footer>
-                <button className="btn btn-primary" onClick={() => createAppointment({
+                <button className="btn btn-primary" onClick={() => {createAppointment({
                     date: aData.actualDate,
                     parentName: aData.parentName,
                     childName: aData.childName,
                     hour: aData.hour,
                     minute: aData.minute,
                     ampm: aData.ampm
-                })}>Submit</button>
+                }); resetForm() }}>Submit</button>
                 <button className="btn btn-secondary" onClick={() => setModal(false)}>Close</button>
             </Modal.Footer>
         </Modal>

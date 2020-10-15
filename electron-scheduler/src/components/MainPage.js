@@ -11,12 +11,10 @@ export default function MainPage(){
             setPageState({ ...pageState, showModal: value });
         },
         createAppointment: function(data){ //add appointments to appointment array here
-            console.log(data)
 
             let app = pageState.appointments; //pull from state
 
             app.push(data); //modify pulled data
-
 
             setPageState({ ...pageState, appointments: app, showModal: false }); //update state
         }
