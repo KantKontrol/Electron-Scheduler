@@ -1,13 +1,14 @@
 body {
-  background-color: #caf0f8;
+  background-color: #0096c7;
   padding-bottom: 25px;
 }
 
 .main-page-header {
-  background-color: #0096c7;
+  background-color: #00b4d8;
   color: #03045e;
   min-height: 200px;
   margin-bottom: 5px;
+  margin-top: 10px;
   border-radius: 5px;
 }
 
@@ -20,33 +21,16 @@ body {
 }
 
 .adisplay-main {
+  font-family: sans-serif;
   background-color: #00b4d8;
   color: #03045e;
-  border-radius: 5px;
-  margin-top: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  padding: 10px;
+  margin-top: 5px;
 }
 
 .adisplay {
-  font-family: sans-serif;
+  
   font-size: 1.2rem;
   width: 100%;
 }
 
-.adisplay-header {
-  font-size: 1.5rem;
-}
-
-.adisplay-sub {
-  font-size: 1.2rem;
-}
-
-.adisplay-date{
-  font-size: 1.2rem;
-}
-.adisplay-time {
-  font-size: 1.2rem;
-}
 

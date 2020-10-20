@@ -10,6 +10,7 @@ export default function SortBar(props){
                 <th scope="col">Child Name</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
     );

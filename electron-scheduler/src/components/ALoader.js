@@ -9,7 +9,7 @@ export default function ALoader(props){
     return (
         <div className="row">
             <div className="col-12">
-                <table className="table">
+                <table className="table adisplay-main table-striped" cellPadding={0} cellSpacing={0}>
                     <SortBar />
                     <tbody>
                         {
