@@ -6,6 +6,8 @@ export default function ALoader(props){
 
     let { appointments, removeApp } = props;
 
+    //add time sort here
+
     return (
         <div className="row">
             <div className="col-12">
