@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { checkForIndexedDb, useIndexedDb } from "./util/IndexedDB";
+import { checkForIndexedDb } from "./util/IndexedDB";
 
 if(checkForIndexedDb()){
   console.log("using IndexedDB")

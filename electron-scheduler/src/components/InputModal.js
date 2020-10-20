@@ -10,7 +10,7 @@ const hours = [ 1,2,3,4,5,6,7,8,9,10,11,12 ];
 const minutes = [];
 
 for(let i=0;i < 60;i++){
-    i === 0 ? minutes.push('00') : minutes.push(i);
+    i < 10 ? minutes.push(`0${i}`) : minutes.push(i);
 }
 
 export default function InputModal(props){

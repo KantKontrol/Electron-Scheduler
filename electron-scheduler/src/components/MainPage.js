@@ -25,13 +25,10 @@ export default function MainPage(){
         
         //update DB
         accessDB("appDB", "apps", "put", data);
-
     }
-
 
     useEffect(() => {
         accessDB("appDB", "apps", "get").then(data => {
-            console.log(data)
             setPageState({ ...pageState, appointments: data});
         });
     }, []);
