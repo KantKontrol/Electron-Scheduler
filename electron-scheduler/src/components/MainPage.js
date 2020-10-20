@@ -10,27 +10,30 @@ export default function MainPage(){
         appointments: []
     });
 
+    const lsDB = function(){
+        accessDB("appDB", "apps", "get").then(data => {
+            setPageState({ ...pageState, appointments: data, showModal: false});
+        });
+    }
+
     const setModal = function(value){
         setPageState({ ...pageState, showModal: value });
     }
 
     const createAppointment = function(data){
-        let app = pageState.appointments; //pull from state
-
-        console.log(app)
-
-        app.push(data); //modify pulled data
-        
-        setPageState({ ...pageState, appointments: app, showModal: false }); //update state
-        
         //update DB
         accessDB("appDB", "apps", "put", data);
+
+        lsDB(); 
+    }
+
+    const removeApp = function(id){
+        accessDB("appDB", "apps", "delete", { _id: id});
+        lsDB();
     }
 
     useEffect(() => {
-        accessDB("appDB", "apps", "get").then(data => {
-            setPageState({ ...pageState, appointments: data});
-        });
+        lsDB();
     }, []);
 
     console.log(pageState.appointments)
@@ -47,7 +50,7 @@ export default function MainPage(){
                     <button className="btn btn-primary d-block mx-auto mt-1" onClick={() => setModal(true)}>Create Appointment</button>
                 </div>
 
-                <ALoader appointments={pageState.appointments} />
+                <ALoader appointments={pageState.appointments} removeApp={removeApp}/>
             
             </div>
             <InputModal showModal={pageState.showModal} setModal={setModal} createAppointment={createAppointment}/>

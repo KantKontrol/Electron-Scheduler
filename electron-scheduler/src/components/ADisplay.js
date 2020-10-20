@@ -3,8 +3,8 @@ import React from "react";
 
 export default function ADisplay(props){
 
-    let { appointment } = props;
-    const { childName, parentName, date, hour, minute, ampm } = appointment
+    let { appointment, removeApp } = props;
+    const { _id, childName, parentName, date, hour, minute, ampm } = appointment
 
 
     return (
@@ -18,7 +18,7 @@ export default function ADisplay(props){
                 <div className="adisplay adisplay-time float-right ml-3">{`${hour}:${minute} ${ampm}`}</div>
             </div>
             <div className="col-4">
-                <button className="btn btn-primary">Cancel Appointment</button>
+                <button className="btn btn-primary" onClick={() => removeApp(_id)}>Cancel Appointment</button>
             </div>
         </div>
     );

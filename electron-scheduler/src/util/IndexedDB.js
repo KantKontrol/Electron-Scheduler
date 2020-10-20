@@ -15,7 +15,7 @@ export function accessDB(databaseName, storeName, method, object) {
 
     request.onupgradeneeded = function(e) {
       const db = request.result;
-      db.createObjectStore(storeName, { autoIncrement: true });
+      db.createObjectStore(storeName, { keyPath: "_id", autoIncrement: true });
     };
 
     request.onerror = function(e) {
