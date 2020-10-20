@@ -13,7 +13,10 @@ function createWindow() {
         minHeight: 600,
         width: SCREEN_WIDTH,
         height: SCREEN_HEIGHT,
-        show: false
+        show: false,
+        webPreferences: {
+          nodeIntegration: true
+        }
     });
     const startURL = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`;
  

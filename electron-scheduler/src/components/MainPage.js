@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputModal from "./InputModal";
 import ALoader from "./ALoader";
+import JSONhandler from "../util/JSONhandler";
 
 export default function MainPage(){
 
     const [pageState, setPageState] = useState({
         showModal: false,
-        appointments: [{parentName: "Mark DeRissio", childName: "Nicholas DeRissio", date: "10/14/2020", hour: 1, minute: "00", ampm: "PM"}],
+        appointments: [],
         setModal: function(value){
             setPageState({ ...pageState, showModal: value });
         },
@@ -19,6 +20,16 @@ export default function MainPage(){
             setPageState({ ...pageState, appointments: app, showModal: false }); //update state
         }
     });
+
+    useEffect(() => {
+        JSONhandler.loadData((err, data) => {
+            if (err) throw err;
+            data = JSON.parse(data)
+            setPageState({ ...pageState, appointments: data });
+        })
+    });
+
+
 
     console.log(pageState.appointments)
    

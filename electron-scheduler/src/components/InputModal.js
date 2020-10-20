@@ -53,7 +53,7 @@ export default function InputModal(props){
 
     
 
-    //add DATE, submit appointment, clear input state, display appointment, save appointment
+    //display appointment, save appointment to memory(JSON?)
     //https://www.npmjs.com/package/react-bootstrap-date-picker
 
     return (
