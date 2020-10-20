@@ -6,7 +6,7 @@ export function checkForIndexedDb() {
   return true;
 }
 
-export function useIndexedDb(databaseName, storeName, method, object) {
+export function accessDB(databaseName, storeName, method, object) {
   return new Promise((resolve, reject) => {
     const request = window.indexedDB.open(databaseName, 1);
     let db,

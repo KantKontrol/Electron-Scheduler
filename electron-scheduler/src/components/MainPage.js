@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InputModal from "./InputModal";
 import ALoader from "./ALoader";
-
+import { accessDB } from "../util/IndexedDB";
 
 export default function MainPage(){
 
@@ -31,9 +31,10 @@ export default function MainPage(){
     });
 
 
-
     useEffect(() => {
-
+        accessDB("appDB", "apps", "get").then(data => {
+            setPageState({ ...pageState, appointments: data});
+        });
         
     }, []);
 
