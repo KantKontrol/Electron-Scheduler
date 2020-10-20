@@ -1,7 +1,7 @@
 import React from "react";
 import 'moment/locale/en-gb.js';
 import 'rc-datepicker/lib/style.css';
-import { DatePicker, DatePickerInput } from 'rc-datepicker';
+import { DatePickerInput } from 'rc-datepicker';
 
 
 

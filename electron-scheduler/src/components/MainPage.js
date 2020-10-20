@@ -10,7 +10,7 @@ export default function MainPage(){
         appointments: []
     });
 
-    const lsDB = function(){
+    const lsDB = function(){ //this function resets appointments
         accessDB("appDB", "apps", "get").then(data => {
             setPageState({ ...pageState, appointments: data, showModal: false});
         });
@@ -36,14 +36,15 @@ export default function MainPage(){
         lsDB();
     }, []);
 
-    console.log(pageState.appointments)
     return (
         <>
             <div className="container-fluid">
                 
                 <div className="row mx-auto main-page-header">
-                    <h1 className="main-page-header-text my-auto d-block">Electron Scheduler</h1>
-                    
+                    <div className="col-12 my-auto">
+                        <h1 className="main-page-header-text d-block">Electron Scheduler</h1>
+                        <h5 className="main-page-header-text d-block">© Nicholas DeRissio 2020</h5>
+                    </div>
                 </div>
 
                 <div className="row">

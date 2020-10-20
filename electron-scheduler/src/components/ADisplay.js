@@ -18,7 +18,7 @@ export default function ADisplay(props){
                 <div className="adisplay adisplay-time float-right ml-3">{`${hour}:${minute} ${ampm}`}</div>
             </div>
             <div className="col-4">
-                <button className="btn btn-primary" onClick={() => removeApp(_id)}>Cancel Appointment</button>
+                <button className="btn btn-primary" onClick={() => removeApp(_id)}>Remove Appointment</button>
             </div>
         </div>
     );
