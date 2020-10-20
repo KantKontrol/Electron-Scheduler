@@ -51,6 +51,8 @@ export default function MainPage(){
                     <button className="btn btn-primary d-block mx-auto mt-1" onClick={() => setModal(true)}>Create Appointment</button>
                 </div>
 
+               
+
                 <ALoader appointments={pageState.appointments} removeApp={removeApp}/>
             
             </div>
