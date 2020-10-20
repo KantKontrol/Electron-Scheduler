@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InputModal from "./InputModal";
 import ALoader from "./ALoader";
-import JSONhandler from "../util/JSONhandler";
+
 
 export default function MainPage(){
 
@@ -15,24 +15,29 @@ export default function MainPage(){
 
             let app = pageState.appointments; //pull from state
 
-            app.push(data); //modify pulled data
+            console.log(app)
 
+            app.push(data); //modify pulled data
+            
             setPageState({ ...pageState, appointments: app, showModal: false }); //update state
+
+          /*  JSONhandler.writeData(app, (err) => {
+                if(err)
+                    console.log("error writing data");
+                else
+                  console.log("success");
+            });*/
         }
     });
 
+
+
     useEffect(() => {
-        JSONhandler.loadData((err, data) => {
-            if (err) throw err;
-            data = JSON.parse(data)
-            setPageState({ ...pageState, appointments: data });
-        })
-    });
 
-
+        
+    }, []);
 
     console.log(pageState.appointments)
-   
     return (
         <>
             <div className="container-fluid">

@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { checkForIndexedDb, useIndexedDb } from "./util/IndexedDB";
+
+if(checkForIndexedDb()){
+  console.log("using IndexedDB")
+  useIndexedDb("appDB", "apps", "put", {name: "jack"});
+  useIndexedDb("appDB", "apps", "get").then(data => console.log(data));
+}
 
 ReactDOM.render(
   <React.StrictMode>
