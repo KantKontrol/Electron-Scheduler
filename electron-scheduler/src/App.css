@@ -3,11 +3,18 @@ body {
   padding-bottom: 25px;
 }
 
+table {
+  margin: 0px !important;
+}
+
+td {
+  vertical-align: middle !important;
+}
+
 .main-page-header {
   background-color: #00b4d8;
   color: #03045e;
   min-height: 200px;
-  margin-bottom: 5px;
   margin-top: 10px;
   border-radius: 5px;
 }

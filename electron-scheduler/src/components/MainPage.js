@@ -48,7 +48,7 @@ export default function MainPage(){
                 </div>
 
                 <div className="row">
-                    <button className="btn btn-primary d-block mx-auto mt-1" onClick={() => setModal(true)}>Create Appointment</button>
+                    <button className="btn btn-primary d-block mx-auto mt-2 mb-2" onClick={() => setModal(true)}>Create Appointment</button>
                 </div>
 
                
