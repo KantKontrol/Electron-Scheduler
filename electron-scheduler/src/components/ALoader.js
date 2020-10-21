@@ -9,9 +9,7 @@ export default function ALoader(props){
     const [sortDateDirection, setSortDateDirection] = useState(0);
     const [sortTimeDirection, setSortTimeDirection] = useState(0);
 
-    
-
-    //add time sort here
+    //must impliment sort at state holding appointment level ****
     const timeComparatorAscending = (a, b) => {
 
         if(a.ampm === "AM" && b.ampm === "PM")

@@ -5,10 +5,25 @@ body {
 
 table {
   margin: 0px !important;
+  
 }
+
+table thead th {
+  border: 0px !important;
+}
+
+table td {
+  border-top: 0px !important;
+}
+
+table th {
+  border-top: 0px !important;
+}
+
 
 td {
   vertical-align: middle !important;
+  overflow: hidden;
 }
 
 .sortImageUp {
