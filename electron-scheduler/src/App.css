@@ -14,12 +14,13 @@ td {
 .sortImageUp {
   display: inline;
   max-width: 30px;
+  transform: rotate(180deg);
 }
 
 .sortImageDown {
   display: inline;
   max-width: 30px;
-  
+  transform: rotate(0deg);
 }
 
 .main-page-header {
