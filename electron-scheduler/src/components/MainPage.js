@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import InputModal from "./InputModal";
 import ALoader from "./ALoader";
 import { accessDB } from "../util/IndexedDB";
+import cHelp from "../util/cHelper.js";
 
 export default function MainPage(){
+
+    //states for sorting
+    const [sortDateDirection, setSortDateDirection] = useState(0);
+    const [sortTimeDirection, setSortTimeDirection] = useState(0);
 
     const [pageState, setPageState] = useState({
         showModal: false,
@@ -36,6 +41,35 @@ export default function MainPage(){
         lsDB();
     }, []);
 
+    const changeDateDirection = () => {
+
+        sortDateDirection === 0 ? setSortDateDirection(1) : setSortDateDirection(0);
+
+        let newAppSort = pageState.appointments;
+
+        if(sortDateDirection === 0)
+            newAppSort.sort(cHelp.dateComparatorAscending);
+        else
+            newAppSort.sort(cHelp.dateComparatorDecending);
+
+        setPageState({ ...pageState, appointments: newAppSort});
+    }
+
+    const changeTimeDirection = () => {
+
+        sortTimeDirection === 0 ? setSortTimeDirection(1) : setSortTimeDirection(0);
+
+        let newAppSort = pageState.appointments;
+
+        if(sortTimeDirection === 0)
+            newAppSort.sort(cHelp.timeComparatorAscending);
+        else
+            newAppSort.sort(cHelp.timeComparatorDecending);
+
+        setPageState({ ...pageState, appointments: newAppSort});
+    }
+    
+
     return (
         <>
             <div className="container-fluid">
@@ -53,7 +87,7 @@ export default function MainPage(){
 
                
 
-                <ALoader appointments={pageState.appointments} removeApp={removeApp}/>
+                <ALoader appointments={pageState.appointments} removeApp={removeApp} changeDateDirection={changeDateDirection} sortDateDirection={sortDateDirection} changeTimeDirection={changeTimeDirection} sortTimeDirection={sortTimeDirection} />
             
             </div>
             <InputModal showModal={pageState.showModal} setModal={setModal} createAppointment={createAppointment}/>
