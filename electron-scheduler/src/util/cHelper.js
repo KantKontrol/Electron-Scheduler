@@ -1,5 +1,5 @@
 
-module.exports = {
+module.exports = { //this file holds comparator functions
     timeComparatorAscending: (a, b) => {
 
         if(a.ampm === "AM" && b.ampm === "PM")
