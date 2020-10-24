@@ -28,7 +28,7 @@ export default function MainPage(){
 
 
     const setModal = function(value){
-        setPageState({ ...pageState, showModal: value });
+        setPageState({ ...pageState, showModal: value, renderCompleted: false });
     }
 
     const createAppointment = function(data){
