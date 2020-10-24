@@ -6,9 +6,9 @@
 * [Installation](#installation)
 * [Credits](#credits)
 
-![image of software1]()
-![image of software2]()
-![image of software3]()
+![image of software1](https://github.com/KantKontrol/Electron-Scheduler/blob/main/readimg/createapp.png?raw=true)
+![image of software2](https://github.com/KantKontrol/Electron-Scheduler/blob/main/readimg/currentappointments.png?raw=true)
+![image of software3](https://github.com/KantKontrol/Electron-Scheduler/blob/main/readimg/showcompleted.png?raw=true)
 
 ## Description
  Due to current work situations, I am required to now make appointments with clientele. I was originally struggling with keeping track of whom I had made appointments with, Also, I wanted something more interesting than google calander. What better than to make my own appointment tracker? Electron-Scheduler is an application you can use to set appointments and see those which you've completed. It is still in development and there will be more features to come!
