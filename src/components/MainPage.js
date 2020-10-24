@@ -43,6 +43,11 @@ export default function MainPage(){
         lsDB();
     }
 
+    const removeAllCApp = function(){
+        accessDB("cAppDB", "apps", "removeAll");
+        showComplete();
+    }
+
     const completeApp = function(id){
         accessDB("appDB", "apps", "getByID", { _id: id}).then(data => {
             accessDB("cAppDB", "apps", "put", data);
@@ -121,7 +126,7 @@ export default function MainPage(){
                 </div>
 
                 {
-                    pageState.renderCompleted ? <ALoader appointments={pageState.cAppointments} changeDateDirection={changeDateDirection} sortDateDirection={sortDateDirection} changeTimeDirection={changeTimeDirection} sortTimeDirection={sortTimeDirection} />
+                    pageState.renderCompleted ? <ALoader renderCompleted={pageState.renderCompleted} removeAllCApp={removeAllCApp} appointments={pageState.cAppointments} changeDateDirection={changeDateDirection} sortDateDirection={sortDateDirection} changeTimeDirection={changeTimeDirection} sortTimeDirection={sortTimeDirection} />
                     :
                     <ALoader appointments={pageState.appointments} removeApp={removeApp} completeApp={completeApp} changeDateDirection={changeDateDirection} sortDateDirection={sortDateDirection} changeTimeDirection={changeTimeDirection} sortTimeDirection={sortTimeDirection} />
                 }

@@ -41,11 +41,14 @@ export function accessDB(databaseName, storeName, method, object) {
       } else if (method === "delete") {
         store.delete(object._id);
       }
-      else if(method ==="getByID"){
+      else if(method === "getByID"){
         const obj = store.get(object._id);
         obj.onsuccess = function(){
           resolve(obj.result);
         }
+      }
+      else if(method === "removeAll"){
+        store.clear();
       }
       tx.oncomplete = function() {
         db.close();
