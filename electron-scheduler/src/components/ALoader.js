@@ -4,7 +4,7 @@ import SortBar from "./SortBar";
 
 export default function ALoader(props){
 
-    let { appointments, removeApp, changeDateDirection, sortDateDirection, changeTimeDirection, sortTimeDirection } = props;
+    let { appointments, removeApp, completeApp, changeDateDirection, sortDateDirection, changeTimeDirection, sortTimeDirection } = props;
 
 
     return (
@@ -15,7 +15,7 @@ export default function ALoader(props){
                     <tbody>
                         {
                             appointments.length > 0 ? appointments.map(e => {
-                                return <ADisplay removeApp={removeApp} appointment={e} key={e._id} />;
+                                return <ADisplay removeApp={removeApp} completeApp={completeApp} appointment={e} key={e._id} />;
                             }) : <tr><th scope="row">No Data</th></tr> 
                         }
                     </tbody>

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function ADisplay(props){
 
-    let { appointment, removeApp } = props;
+    let { appointment, removeApp, completeApp } = props;
     const { _id, childName, parentName, date, hour, minute, ampm } = appointment
 
 
@@ -14,7 +14,7 @@ export default function ADisplay(props){
             <td>{childName}</td>
             <td>{date}</td>
             <td>{`${hour}:${minute} ${ampm}`}</td>
-            <td><button className="btn btn-success" onClick={console.log("Complete!")} >✓</button> <button className="btn btn-primary" onClick={() => removeApp(_id)} >X</button></td>
+            <td><button className="btn btn-success" onClick={() => completeApp(_id)} >✓</button> <button className="btn btn-primary" onClick={() => removeApp(_id)} >X</button></td>
         </tr>
     );
 }

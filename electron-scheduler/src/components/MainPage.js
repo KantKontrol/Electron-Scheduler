@@ -40,6 +40,12 @@ export default function MainPage(){
         lsDB();
     }
 
+    const completeApp = function(id){
+        accessDB("appDB", "apps", "get", { _id: id}).then(data => {
+            console.log(data);
+        })
+    }
+
     useEffect(() => {
         lsDB();
     }, []);
@@ -90,7 +96,7 @@ export default function MainPage(){
 
                
 
-                <ALoader appointments={pageState.appointments} removeApp={removeApp} changeDateDirection={changeDateDirection} sortDateDirection={sortDateDirection} changeTimeDirection={changeTimeDirection} sortTimeDirection={sortTimeDirection} />
+                <ALoader appointments={pageState.appointments} removeApp={removeApp} completeApp={completeApp} changeDateDirection={changeDateDirection} sortDateDirection={sortDateDirection} changeTimeDirection={changeTimeDirection} sortTimeDirection={sortTimeDirection} />
             
             </div>
             <InputModal showModal={pageState.showModal} setModal={setModal} createAppointment={createAppointment}/>
