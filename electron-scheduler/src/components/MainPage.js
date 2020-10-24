@@ -12,7 +12,9 @@ export default function MainPage(){
 
     const [pageState, setPageState] = useState({
         showModal: false,
-        appointments: []
+        appointments: [],
+        cAppointments: [],
+        renderCompleted: false
     });
 
     const lsDB = function(){ //this function resets appointments
@@ -23,6 +25,7 @@ export default function MainPage(){
             setPageState({ ...pageState, appointments: data, showModal: false});
         });
     }
+
 
     const setModal = function(value){
         setPageState({ ...pageState, showModal: value });
@@ -41,9 +44,21 @@ export default function MainPage(){
     }
 
     const completeApp = function(id){
-        accessDB("appDB", "apps", "get", { _id: id}).then(data => {
-            console.log(data);
-        })
+        accessDB("appDB", "apps", "getByID", { _id: id}).then(data => {
+            accessDB("cAppDB", "apps", "put", data);
+            accessDB("appDB", "apps", "delete", { _id: id});
+            lsDB();
+        });
+    }
+
+    const showComplete = function(){ 
+        accessDB("cAppDB", "apps", "get").then(data => {
+
+            data.sort(cHelp.timeComparatorAscending);
+            let rc = pageState.renderCompleted;
+
+            setPageState({ ...pageState, cAppointments: data, renderCompleted: !rc });
+        });
     }
 
     useEffect(() => {
@@ -91,13 +106,26 @@ export default function MainPage(){
                 </div>
 
                 <div className="row">
-                    <button className="btn btn-primary d-block mx-auto mt-2 mb-2" onClick={() => setModal(true)}>Create Appointment</button>
+
+                    <div className="col-md-3 col-lg-4"></div>
+
+                    <div className="col-md-6 col-lg-4">
+                       
+                            <button className="btn btn-primary d-inline-block mt-2 mb-2 float-left" onClick={() => setModal(true)}>Create Appointment</button>
+                            <button className="btn btn-primary d-inline-block mt-2 mb-2 float-right" onClick={() => showComplete()}>{ pageState.renderCompleted ? "Show Current" : "Show Completed"}</button>
+                
+                    </div>
+                    
+                   
+                    <div className="col-md-3 col-lg-4"></div>
                 </div>
 
-               
+                {
+                    pageState.renderCompleted ? <ALoader appointments={pageState.cAppointments} changeDateDirection={changeDateDirection} sortDateDirection={sortDateDirection} changeTimeDirection={changeTimeDirection} sortTimeDirection={sortTimeDirection} />
+                    :
+                    <ALoader appointments={pageState.appointments} removeApp={removeApp} completeApp={completeApp} changeDateDirection={changeDateDirection} sortDateDirection={sortDateDirection} changeTimeDirection={changeTimeDirection} sortTimeDirection={sortTimeDirection} />
+                }
 
-                <ALoader appointments={pageState.appointments} removeApp={removeApp} completeApp={completeApp} changeDateDirection={changeDateDirection} sortDateDirection={sortDateDirection} changeTimeDirection={changeTimeDirection} sortTimeDirection={sortTimeDirection} />
-            
             </div>
             <InputModal showModal={pageState.showModal} setModal={setModal} createAppointment={createAppointment}/>
         </>

@@ -14,7 +14,11 @@ export default function ADisplay(props){
             <td>{childName}</td>
             <td>{date}</td>
             <td>{`${hour}:${minute} ${ampm}`}</td>
-            <td><button className="btn btn-success" onClick={() => completeApp(_id)} >✓</button> <button className="btn btn-primary" onClick={() => removeApp(_id)} >X</button></td>
+            {
+                removeApp || completeApp ?  <td><button className="btn btn-success" onClick={() => completeApp(_id)} >✓</button> <button className="btn btn-primary" onClick={() => removeApp(_id)} >X</button></td> 
+                :
+                <td>Completed!</td>
+            }
         </tr>
     );
 }

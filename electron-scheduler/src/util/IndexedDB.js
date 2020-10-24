@@ -15,6 +15,7 @@ export function accessDB(databaseName, storeName, method, object) {
 
     request.onupgradeneeded = function(e) {
       const db = request.result;
+      console.log("Upgraded!")
       db.createObjectStore(storeName, { keyPath: "_id", autoIncrement: true });
     };
 
@@ -39,6 +40,12 @@ export function accessDB(databaseName, storeName, method, object) {
         };
       } else if (method === "delete") {
         store.delete(object._id);
+      }
+      else if(method ==="getByID"){
+        const obj = store.get(object._id);
+        obj.onsuccess = function(){
+          resolve(obj.result);
+        }
       }
       tx.oncomplete = function() {
         db.close();
