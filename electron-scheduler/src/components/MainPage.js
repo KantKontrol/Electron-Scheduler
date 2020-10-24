@@ -17,6 +17,9 @@ export default function MainPage(){
 
     const lsDB = function(){ //this function resets appointments
         accessDB("appDB", "apps", "get").then(data => {
+            
+            data.sort(cHelp.timeComparatorAscending);
+
             setPageState({ ...pageState, appointments: data, showModal: false});
         });
     }
