@@ -15,9 +15,11 @@
 
 ## Installation
  This application will soon be built and packaged. Until then you can run these commands to use this software:
+ ```
  ~git clone https://github.com/KantKontrol/Electron-Scheduler.git 
  ~cd Electron-Scheduler
  ~npm install && npm run dev
+ ```
 
 ## Credits
 
