@@ -23,6 +23,6 @@
 
 ## Credits
 
-Owner: KantKontrol Email: nick.derissio.tech@gmail.com
+Owner: KantKontrol
 
 ![alt](https://avatars0.githubusercontent.com/u/57921318?v=4)
